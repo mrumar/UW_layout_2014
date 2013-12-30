@@ -1,0 +1,110 @@
+/* for win8 mobile */
+@charset "UTF-8";
+/*@-ms-viewport {
+  width: device-width;
+}*/
+
+/*@viewport {
+  width: device-width;
+}*/
+
+/* vars */
+$txtColor: #6B6B5B;
+$linkColor: #368AAD;
+$iconColor: #4F93AF;
+$alertColor: #CE6B42;
+$highlightColor: #815542;
+$bodyFont: 'PT Sans', Tahoma, sans-serif;
+$headingFont: 'Oranienbaum', serif;
+$baseFontSize: 16;
+$onePx: (1 / $baseFontSize) + rem;
+$tenPx: (10 / $baseFontSize) + rem;
+$minOnePx: (-1 / $baseFontSize) + rem;
+$twoPx: (2 / $baseFontSize) + rem;
+
+/* mixins */
+@mixin rem-font-size($sizeValue: 1){
+  font-size: ($sizeValue / $baseFontSize) + px;
+  font-size: $sizeValue + rem;
+}
+@mixin image-2x($image, $width, $height) {
+  /* 2 dpr */
+   @media (-webkit-min-device-pixel-ratio: 2), 
+          (min-resolution: 192dpi) { 
+    background-image: url($image);
+    background-size: $width $height;
+  }
+  /* 1.5 dpr */
+  @media 
+  (-webkit-min-device-pixel-ratio: 1.5), 
+  (min-resolution: 144dpi) { 
+      background-image: url($image);
+    background-size: $width $height;
+  }
+}
+// div.logo {
+  // background: url("logo.png") no-repeat;
+  // @include image-2x("logo2x.png", 100px, 25px);
+// }
+
+
+/* typography */
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: $bodyFont;
+    font-size: 100%;
+    background: salmon;
+    color: $txtColor;
+}
+a {
+    color: $linkColor;
+    text-decoration: none;
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+
+    &:hover {
+        text-decoration: underline;
+        color: #236E8D;
+    }
+    img {
+        border: 0;
+    }
+}
+
+/* responsiveness */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+.video embed,
+.video object,
+.video iframe {
+  width: 100%;
+  height: auto;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* reusable classes */
+
+.clear {
+    clear: both;
+}
+.clear:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.hide {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}

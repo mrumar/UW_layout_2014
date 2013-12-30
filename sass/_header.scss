@@ -1,0 +1,225 @@
+.main-header {
+    width: 100%;
+    min-height: 8em;
+    position: relative;
+
+    .banner {
+        width:  11.56rem;
+        display: block;
+    }
+    h1 {
+        background: url('images/logo2.gif') no-repeat 0 0.3rem;
+        background-size: 100% auto;
+        padding-top: 9.2rem;
+        height: $onePx;
+        width: 11.56rem;
+        overflow: hidden;
+        position: relative;
+    }
+    h2 {
+        font-weight: 400;
+        font-size: 1.2em;
+        position: absolute;
+        left: 12rem;
+        top: 5.6rem;
+        font-family: $headingFont;
+        color: #706561;
+        text-shadow: 2px 2px 2px white;
+    }
+    hgroup {
+        position: relative;
+    }
+    .icon-list {
+        position: absolute;
+        top:0.5rem;
+        right: 0.5rem;
+        width: 4rem;
+        height: 4rem;
+        overflow: hidden;
+        background-color: #F5F2E5;
+        color: #916A5B;
+        box-shadow: $minOnePx $onePx $twoPx 0 rgba(0, 0, 0, 0.25);
+        &:active {
+            box-shadow: $minOnePx $onePx $twoPx 0 rgba(0, 0, 0, 0.4);
+            background-color: #E7E4D7;
+        }
+    }
+}
+.main-menu {
+    position: absolute;
+    top:0.125em;
+    right: 0;
+
+    .list {
+        font-size: 1.125em;
+    }
+    li {
+        display: inline-block;
+        position: relative;
+    }
+    .list > li {
+        margin: (5/$baseFontSize) + rem;
+    }
+    .f-level {
+        background-color: #F5F2E5;
+        border: $onePx solid wheat;
+        box-shadow: $minOnePx $onePx $twoPx 0 rgba(0, 0, 0, 0.25);
+        padding: 0 $tenPx;
+        line-height: (29/$baseFontSize) + rem;
+        display: block;
+        font-family: $headingFont;
+        color: $highlightColor;
+        text-transform: capitalize;
+        letter-spacing: $onePx;
+    }
+    .f-level:hover {
+        box-shadow: $minOnePx $onePx (4/$baseFontSize) + rem 0 rgba(0, 0, 0, 0.6);
+        text-decoration: none;
+    }
+    .active .f-level {
+        background-color: #837570;
+        color: floralwhite;
+    }
+    ul ul {
+        display: block;
+        height: 1px;
+        overflow: hidden;
+        opacity: 0;
+        -webkit-transition:height 1s, opacity 0.5s;
+        transition:height 1s, opacity 0.5s;
+
+        position: absolute;
+        left: 0;
+        top: (30/$baseFontSize) + rem;
+        z-index: 78;
+        min-width: 8em;
+        box-shadow: $minOnePx $onePx (4/$baseFontSize) + rem 0 rgba(0, 0, 0, 0.6);
+        background-color: #F5F2E5;
+        border-bottom: 1px solid #837570;
+    }
+    li:hover, li.ext {
+        ul {
+            opacity: 1;
+        }
+        .items-5 {
+            height: (144/$baseFontSize) + rem;
+        }
+        .items-4 {
+            height: (116/$baseFontSize) + rem;
+        }
+        .items-3 {
+            height: (86/$baseFontSize) + rem;
+        }
+        .items-2 {
+            height: (57/$baseFontSize) + rem;
+        }
+    }
+    ul ul li {
+        display: block; 
+        border-top: $onePx solid rgba(255,255,255,0.8);
+        border-bottom: $onePx solid rgba(0,0,0,0.15);
+        font-size: 0.77em;  
+    }
+    ul ul li:first-child {
+        border-top: 0 none;
+    }
+    ul ul li:last-child {
+        border-bottom: 0 none;
+    }
+    ul ul a {
+        display: block; 
+        padding: 0.3em (11/$baseFontSize) + rem;
+        color: $highlightColor;
+    }
+    ul ul li a:hover {
+        background-color: #DFD2B7;
+        text-decoration: none;
+    }
+    .icon-close {
+        float: right;
+        margin-top: 0.5em;
+    }
+}
+
+/* main menu on small devices */
+@media only screen and (max-width: 43.75em) {
+    .main-menu li {
+      float:none;
+      display:block;
+    }
+    .main-menu ul ul {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: #FDFDFD;
+        border-bottom: 0 none;
+        a {
+            color: #684E44;
+        }
+    }
+    
+    .js .main-menu {
+        position: absolute;
+        left: -70%;
+        background-color: #fff;
+        width: 70%;
+        height: 100%;
+        top: 0;
+    }
+    .js .inner-wrap {
+          -webkit-transition: left 300ms ease-out;
+        transition: left 300ms ease-out;
+    }
+    .is-nav .inner-wrap {
+        position:relative;
+        left: 70%;
+    }
+    /* for 3d transform support: */
+   .transforms3d .main-menu {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            -moz-transform: translate3d(-100%, 0, 0);
+            -ms-transform: translate3d(-100%, 0, 0);
+            -o-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        left: 0;
+        overflow:hidden;
+   }
+   .transforms3d .inner-wrap {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+            -webkit-transition: -webkit-transform 300ms ease-out;
+        transition: transform 300ms ease-out;
+   }
+   .transforms3d.is-nav .inner-wrap {
+            -webkit-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+            -moz-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+            -ms-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+            -o-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+        transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+        left:0;
+   }
+   .transforms3d .main-menu .list {
+        -webkit-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
+        -ms-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
+        -moz-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
+        transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
+
+        -webkit-transition: -webkit-transform 300ms ease-out;
+        transition: transform 300ms ease-out;
+
+        -webkit-transform-origin: 50% 0;
+        -moz-transform-origin: 50% 0;
+        -ms-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+   }
+   .transforms3d.is-nav .main-menu .list {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+   }
+}
